@@ -172,6 +172,7 @@ public class LocalHookupTest extends BaseTest {
         assertTrue(localHookupPage.faqCollapseTextCheck());
     }
 
+    /*
     @Test
     public void articlesButtonTest () {
         int goodTitlesCount = 0;
@@ -185,6 +186,8 @@ public class LocalHookupTest extends BaseTest {
         }
         assertEquals(NUMBER_OF_ARTICLES_LOCAL_HOOKUP_PAGE, goodTitlesCount);
     }
+
+     */
 
     @Test
     public void blogSliderTest () {
