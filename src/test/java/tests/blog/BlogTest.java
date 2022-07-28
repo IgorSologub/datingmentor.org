@@ -91,24 +91,52 @@ public class BlogTest extends BaseTest {
 
     @Test
     public void successfulCommentFormTest () {
+        basePage.waitFiveSeconds();
         blogPage.enterName(NAME)
                 .enterEmail(EMAIL)
                 .enterComment(COMMENT);
         basePage.waitOneSeconds();
         blogPage.submitButtonClick();
         basePage.waitFiveSeconds();
-        assertTrue(blogPage.submitMessageVisibleCheck());
+        if (blogPage.submitMessageVisibleCheck()) {
+            assertTrue(blogPage.submitMessageVisibleCheck());
+        } else {
+            blogPage.refreshPage();
+            basePage.waitFiveSeconds();
+            blogPage.enterName(NAME)
+                    .enterEmail(EMAIL)
+                    .enterComment(COMMENT);
+            basePage.waitOneSeconds();
+            blogPage.submitButtonClick();
+            basePage.waitFiveSeconds();
+            assertTrue(blogPage.submitMessageVisibleCheck());
+        }
+
     }
 
     @Test
     public void unsuccessfulCommentFormTest () {
+        basePage.waitFiveSeconds();
         blogPage.enterName(EMPTY)
                 .enterEmail(EMPTY)
                 .enterComment(EMPTY);
         basePage.waitOneSeconds();
         blogPage.submitButtonClick();
         basePage.waitFiveSeconds();
-        assertTrue(blogPage.inputErrorVisibleCheck());
+        if (blogPage.inputErrorVisibleCheck()) {
+            assertTrue(blogPage.inputErrorVisibleCheck());
+        } else {
+            blogPage.refreshPage();
+            basePage.waitFiveSeconds();
+            blogPage.enterName(NAME)
+                    .enterEmail(EMAIL)
+                    .enterComment(COMMENT);
+            basePage.waitOneSeconds();
+            blogPage.submitButtonClick();
+            basePage.waitFiveSeconds();
+            assertTrue(blogPage.inputErrorVisibleCheck());
+        }
+
     }
 
     @Test
