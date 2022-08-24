@@ -39,7 +39,7 @@ public class ContactUsPage extends BasePage {
         if (!isVisible) {
             waitOneSeconds();
             submitButtonClick();
-            waitFiveSeconds();
+            waitTwoSeconds();
             isVisible = driver.findElements(submitMessage).size() == 1;
         }
         return isVisible;
@@ -51,7 +51,7 @@ public class ContactUsPage extends BasePage {
         if (!errorsCheck) {
             waitOneSeconds();
             submitButtonClick();
-            waitFiveSeconds();
+            waitTwoSeconds();
             errorsCheck = driver.findElements(By.xpath("//input[@class='Tm_2vEy error']")).size() == 2;
         }
         return errorsCheck;
