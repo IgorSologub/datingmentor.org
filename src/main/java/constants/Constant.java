@@ -65,7 +65,7 @@ public class Constant {
                 "Escort",
                 "Naked"
         );
-        public static final int NUMBER_OF_GOOD_FOOTER_BUTTONS = 50;
+        public static final int NUMBER_OF_GOOD_FOOTER_BUTTONS = 49;
     }
 
     public static class Reg {
